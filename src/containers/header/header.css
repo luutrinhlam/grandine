@@ -45,8 +45,8 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
-    background: var(--color-footer);
-    border: 2px solid var(--color-footer);
+    background: #ffd8d896;
+    border: 2px #ffd8d896;
     padding: 0 1rem;
     outline: none;
     color: #242422;
@@ -63,15 +63,16 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
-    background: #FF4820;
-    border: 2px solid #FF4820;
+    background: #ff000093;
+    border: 2px #ff000093;
     padding: 0 1rem;
     color: #fff;
+    font-weight: 500;
     cursor: pointer;
     outline: none;
 
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 .gpt3__header-content__people {

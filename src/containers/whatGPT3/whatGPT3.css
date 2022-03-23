@@ -11,6 +11,8 @@
 
 .gpt3__whatgpt3-feature {
     display: flex;
+    align-items:center;
+    justify-content: center;
 }
 
 /* Customizing feature component as per needs */
