@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/Grandine.svg';
 import './navbar.css';
@@ -16,8 +16,31 @@ const Menu = () => {
 }
 
 const Navbar = () => {
-    const [toggleMenu, setToggleMenu] = useState(false);
+    /* test Fetch*///////////////////////////////////////////////////////////////////////////////////////////////
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch("https://reqres.in/api/users/2")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setItems(result);
+                    setIsLoaded(true);
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
+    if(isLoaded) console.log(items);
+    /* test Fetch*//////////////////////////////////////////////////////////////////////////////////////////////
 
+    const [toggleMenu, setToggleMenu] = useState(false);
     return (
         <div className="gpt3__navbar">
             <div className="gpt3__navbar-links">

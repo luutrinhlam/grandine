@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Footer, Blog, Possibility, Features, WhatGPT3, Header } from './containers';
-import { CTA, Brand, Navbar } from './components';
+import { CTA, Brand, Navbar, Dashboard } from './components';
 
 import { Connector } from 'mqtt-reactjs-hooks';
 
@@ -25,16 +25,17 @@ const App = () => (
       <div className="gradient__bg">
         <Navbar />
         <Header />
-        <Brand />
-
-      </div>
-      <div className="color__bg">
+        <Dashboard />
+        <Brand /> 
         <WhatGPT3 />
         <Features />
         <Possibility />
         <CTA />
         <Blog />
         <Footer />
+      </div>
+      <div className="color__bg">
+
       </div>
     </div>
   </Connector>
