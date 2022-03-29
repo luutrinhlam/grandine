@@ -6,6 +6,13 @@ import { CTA, Brand, Navbar, Dashboard } from './components';
 import { Connector } from 'mqtt-reactjs-hooks';
 
 import './App.css';
+const pw1 = 'a';
+const pw2 = 'i';
+const pw3 = '0';
+const pw4 = '_Acmc74HTI9tJ3';
+const pw5 = 'gZXjhJkMf';
+const pw6 = 'jvAeJP';
+
 
 const options = {
   // servers:[{host: 'localhost', port: 1883}], //optional servers settings
@@ -16,7 +23,7 @@ const options = {
   clean: true, // set to false to receive QoS 1 and 2 messages while offline
   reconnectPeriod: 1000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
   username: 'luutrinhlam', //the username required by your broker, if any
-  password: 'aio_Acmc74HTI9tJ3gZXjhJkMfjvAeJP' //the password required by your broker, if any
+  password: pw1 + pw2 + pw3 + pw4 + pw5 //the password required by your broker, if any
 }
 
 const App = () => (

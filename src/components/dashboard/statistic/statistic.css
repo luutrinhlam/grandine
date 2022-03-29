@@ -1,0 +1,94 @@
+.dashboard_statistic{
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+.dashboard_statistic_choice{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+
+    /* align-items:center; */
+}
+.dashboard_statistic_choice .bold {
+    /* background-color: rgba(43, 41, 160, 0.678); */
+    /* rgba(43, 41, 160, 0.678); */
+    background:radial-gradient(circle at 11% 0%, rgba(245, 92, 232, 0.548) 0%, rgba(119, 175, 212, 0.418) 100%);
+    border: solid 2px rgba(0, 37, 36, 0.226);
+}
+
+.dashboard_statistic_choice div {
+    display: flex;
+    flex-direction:column;
+    border-radius:10px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius:0;
+    border: 1px solid rgba(199, 166, 218, 0.267);
+    /* background-color:rgba(75, 70, 58, 0.24); */
+    /* background:radial-gradient(circle at 11% 0%, rgba(117, 243, 138, 0.459) 0%, rgba(147, 182, 49, 0.247) 100%); */
+    background-color: rgba(209, 125, 125, 0.151);
+    
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    margin-right: 1.2rem;
+    cursor: pointer;
+
+}
+
+
+
+.dashboard_statistic_choice div p{
+    font-family: var(--font-family);
+    font-weight: 1000;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: rgb(46, 20, 20);
+    /* text-align: center; */
+
+    display:flex;
+    justify-content: center;
+
+}
+
+.dashboard_statistic_choice div p .icon{
+    /* flex:1; */
+    margin-right:2px;
+    max-width:20px;
+}
+
+.dashboard_statistic_graph{
+    width:70%;
+}
+
+
+
+@media screen and (max-width: 1345px) {
+    .dashboard_statistic_choice div {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .dashboard_statistic_choice {
+        margin-bottom: 1.5rem;
+    }
+    .dashboard_statistic_choice div {
+        margin: 0.2rem;
+        padding: 0.3rem;
+    }
+    .dashboard_statistic_choice div p{
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 15px;
+    }
+    .dashboard_statistic_graph{
+        width:100%;
+    }
+}
