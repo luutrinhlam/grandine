@@ -70,7 +70,16 @@
         letter-spacing: 0px;
     }
     .dashboard{
-        padding: 1.2rem;
-        margin: 2rem 2rem 3rem 3rem;
+        padding: 1.3rem;
+        margin: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dashboard{
+        padding: 1.2rem 0.2rem ;
+        padding-right: 0.3rem;
+        margin: 1rem;
+        margin-left: 0.5rem;
     }
 }
