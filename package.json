@@ -12,6 +12,7 @@
     "chart.js": "^3.7.1",
     "font-awesome": "^4.7.0",
     "mqtt": "^4.3.6",
+    "mqtt-react-hooks": "^2.0.3",
     "mqtt-reactjs-hooks": "^1.0.14",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.1",

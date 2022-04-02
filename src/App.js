@@ -6,12 +6,6 @@ import { CTA, Brand, Navbar, Dashboard } from './components';
 import { Connector } from 'mqtt-reactjs-hooks';
 
 import './App.css';
-const pw1 = 'a';
-const pw2 = 'i';
-const pw3 = '0';
-const pw4 = '_Acmc74HTI9tJ3';
-const pw5 = 'gZXjhJkMf';
-const pw6 = 'jvAeJP';
 
 
 const options = {
@@ -21,9 +15,9 @@ const options = {
   protocolId: 'MQTT',
   protocolVersion: 4,
   clean: true, // set to false to receive QoS 1 and 2 messages while offline
-  reconnectPeriod: 1000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
+  reconnectPeriod: 5000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
   username: 'luutrinhlam', //the username required by your broker, if any
-  password: pw1 + pw2 + pw3 + pw4 + pw5 //the password required by your broker, if any
+  password: "aio_iscx08qtipQ3KtxwrhwOZnkxlFHe" //the password required by your broker, if any
 }
 
 const App = () => (
@@ -51,28 +45,6 @@ const App = () => (
 export default App;
 
 // import React from 'react';
-
-// import { Connector } from 'mqtt-reactjs-hooks';
-// import { useMqttState, useSubscription } from 'mqtt-reactjs-hooks';
-// function Status() {
-//   const { mqttClient } = useMqttState();
-//   const { message,topic } = useSubscription(['luutrinhlam/feeds/bbc-temp']);
-
-//   function handleClick(message) {
-//     return mqttClient.publish('luutrinhlam/feeds/bbc-temp', message);
-//   }
-
-//   return (
-//     <>
-//       <button type='button' onClick={() => handleClick('5')}>
-//         Start
-//       </button>
-//       <div style={{ display: 'flex', flexDirection: 'column' }}>
-//         <span>{`topic:${topic} - message: ${message.message}`}</span>
-//       </div>
-//     </>
-//   );
-// }
 
 // let options = {
 //   // servers:[{host: 'localhost', port: 1883}], //optional servers settings

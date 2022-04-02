@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'chart.js/auto';
 import { Chart, Bar, Doughnut, Line } from 'react-chartjs-2';
 import './statistic.css';
@@ -22,25 +22,45 @@ var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
 
 
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-const dataTemp = {
-    morning: [22, 21, 21, 23, 18, 20, 25],
-    afternoon: [33, 30, 25, 26, 26, 29, 34],
-    evening: [23, 20, 17, 19, 20, 21, 25]
+// const dataTemp = {
+//     morning: [22, 21, 21, 23, 18, 20, 25],
+//     afternoon: [33, 30, 25, 26, 26, 29, 34],
+//     evening: [23, 20, 17, 19, 20, 21, 25]
+// }
+// const dataHumi = {
+//     morning: [83, 66, 77, 95, 93, 75, 86],
+//     afternoon: [62, 86, 83, 71, 79, 60, 68],
+//     evening: [78, 95, 64, 77, 84, 87, 86]
+// }
+// const dataAirPressure = {
+//     morning: [966, 985, 969, 992, 978, 946, 957],
+//     afternoon: [973, 940, 999, 970, 920, 910, 988],
+//     evening: [902, 944, 915, 957, 987, 974, 934]
+// }
+// const dataWind = {
+//     morning: [11, 10, 6, 13, 11, 7, 5],
+//     afternoon: [12, 11, 11, 11, 11, 8, 10],
+//     evening: [6, 12, 5, 5, 9, 10, 9]
+// }
+let dataTemp = {
+    morning: [],
+    afternoon: [],
+    evening: []
 }
-const dataHumi = {
-    morning: [83, 66, 77, 95, 93, 75, 86],
-    afternoon: [62, 86, 83, 71, 79, 60, 68],
-    evening: [78, 95, 64, 77, 84, 87, 86]
+let dataHumi = {
+    morning: [],
+    afternoon: [],
+    evening: []
 }
-const dataAirPressure = {
-    morning: [966, 985, 969, 992, 978, 946, 957],
-    afternoon: [973, 940, 999, 970, 920, 910, 988],
-    evening: [902, 944, 915, 957, 987, 974, 934]
+let dataAirPressure = {
+    morning: [],
+    afternoon: [],
+    evening: []
 }
-const dataWind = {
-    morning: [11, 10, 6, 13, 11, 7, 5],
-    afternoon: [12, 11, 11, 11, 11, 8, 10],
-    evening: [6, 12, 5, 5, 9, 10, 9]
+let dataWind = {
+    morning: [],
+    afternoon: [],
+    evening: []
 }
 function makeData(receiveData) {
     return {
@@ -56,7 +76,7 @@ function makeData(receiveData) {
         datasets: [
             {
                 label: "Morning",
-                data: receiveData.morning,
+                data: receiveData?receiveData.morning : null,
                 fill: false,
                 // backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)",
@@ -64,7 +84,7 @@ function makeData(receiveData) {
             },
             {
                 label: "Afternoon",
-                data: receiveData.afternoon,
+                data: receiveData?receiveData.afternoon : null,
                 fill: false,
                 borderColor: "#742774",
                 // backgroundColor: "#000"
@@ -74,7 +94,7 @@ function makeData(receiveData) {
             },
             {
                 label: "Evening",
-                data: receiveData.evening,
+                data: receiveData?receiveData.evening : null,
                 fill: false,
                 borderColor: "#000",
                 borderJoinStyle: 'bevel',
@@ -83,7 +103,7 @@ function makeData(receiveData) {
         ]
     }
 }
-function renderOptions(unit){
+function renderOptions(unit) {
     return {
         responsive: true,
         hoverRadius: 12,
@@ -93,8 +113,8 @@ function renderOptions(unit){
             y: {
                 ticks: {
                     // Include a dollar sign in the ticks
-                    callback: function(value, index, ticks) {
-                        return  value + unit;
+                    callback: function (value, index, ticks) {
+                        return value + unit;
                     }
                 }
             }
@@ -123,10 +143,47 @@ function renderOptions(unit){
 
 
 function DataChart({ graphState }) {
-    const [dataT, setDataT] = useState(makeData(dataTemp));
-    const [dataH, setDataH] = useState(makeData(dataHumi));
-    const [dataA, setDataA] = useState(makeData(dataAirPressure));
-    const [dataW, setDataW] = useState(makeData(dataWind));
+    const [dataT, setDataT] = useState(makeData(null));
+    const [dataH, setDataH] = useState(makeData(null));
+    const [dataA, setDataA] = useState(makeData(null));
+    const [dataW, setDataW] = useState(makeData(null));
+
+    const [isLoaded, setIsLoaded] = useState(false);
+    useEffect(() => {
+        fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/average/data?limit=7')
+            .then(result => result.json())
+            .then(result=>{
+                for (let day_average of result) {
+                    let value = day_average.value;
+                    value = value.replaceAll('[','');
+                    value = value.replaceAll(']','');
+                    value = value.replaceAll(' ','');
+                    value = value.split(',');
+
+                    dataTemp.morning.unshift(value[0]);
+                    dataTemp.afternoon.unshift(value[4]);
+                    dataTemp.evening.unshift(value[8]);
+
+                    dataHumi.morning.unshift(value[1]);
+                    dataHumi.afternoon.unshift(value[5]);
+                    dataHumi.evening.unshift(value[9]);
+
+                    dataAirPressure.morning.unshift(value[2]);
+                    dataAirPressure.afternoon.unshift(value[6]);
+                    dataAirPressure.evening.unshift(value[10]);
+
+                    dataWind.morning.unshift(value[3]);
+                    dataWind.afternoon.unshift(value[7]);
+                    dataWind.evening.unshift(value[11]);
+                }
+                setIsLoaded(true);
+                setDataT(makeData(dataTemp));
+                setDataH(makeData(dataHumi));
+                setDataA(makeData(dataAirPressure));
+                setDataW(makeData(dataWind));
+
+            })
+    }, [])
 
     if (graphState == "temperature")
         return <Line data={dataT} options={renderOptions("°C")} />
@@ -143,26 +200,26 @@ function Statistic() {
     return (
         <div className="dashboard_statistic scale-up-center">
             <div className="dashboard_statistic_choice">
-                <div className={graphState=="temperature"?"bold":""} onClick={() => { setGraphState("temperature") }}>
+                <div className={graphState == "temperature" ? "bold" : ""} onClick={() => { setGraphState("temperature") }}>
 
                     <p>
                         <FontAwesomeIcon icon={faTemperatureFull} className="icon" />
                         Temperature
                     </p>
                 </div>
-                <div className={graphState=="humidity"?"bold":""} onClick={() => { setGraphState("humidity") }}>
+                <div className={graphState == "humidity" ? "bold" : ""} onClick={() => { setGraphState("humidity") }}>
                     <p>
                         <FontAwesomeIcon icon={faBottleDroplet} className="icon" />
                         Humidity
                     </p>
                 </div>
-                <div className={graphState=="air_pressure"?"bold":""} onClick={() => { setGraphState("air_pressure") }}>
+                <div className={graphState == "air_pressure" ? "bold" : ""} onClick={() => { setGraphState("air_pressure") }}>
                     <p>
                         <FontAwesomeIcon icon={faCloud} className="icon" />
                         Air Pressure
                     </p>
                 </div>
-                <div className={graphState=="wind_speed"?"bold":""} onClick={() => { setGraphState("wind_speed") }}>
+                <div className={graphState == "wind_speed" ? "bold" : ""} onClick={() => { setGraphState("wind_speed") }}>
                     <p>
                         <FontAwesomeIcon icon={faWind} className="icon" />
                         Wind speed
