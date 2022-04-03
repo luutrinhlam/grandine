@@ -17,7 +17,7 @@ function Header() {
 
   function SubmitEmail(email) {
     alert('Thank for your subcription! Grandine will be there with your weather');
-    return mqttClient.publish('luutrinhlam/feeds/bbc-temp', email);  
+    return mqttClient.publish('phamdinhtrung/feeds/iot-weather-forecast.mail', email);  
   }
 
   function handleInputChange(event){

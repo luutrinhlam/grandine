@@ -12,6 +12,8 @@
     flex: 1;
     max-width: 180px;
     margin-right: 2rem;
+    margin-bottom: 0.5rem;
+
 }
 
 .gpt3__features-container__feature-title h1 {
@@ -57,7 +59,7 @@
     font-family: var(--font-family);
     font-weight: 900;
     font-size: 13px;
-    line-height: 10px;
+    line-height: 15px;
     color: #491621c0;
     margin-left: 0.2rem;
 }

@@ -10,7 +10,7 @@ function Dashboard() {
     const [displaySensor, setDisplaySensor] = useState(true);
 
     return (
-        <div className="dashboard">
+        <div className="dashboard" id ="dashboard">
             <div className="dashboard_type">
                 <p className={displaySensor==true?"choose":""}  onClick={() => setDisplaySensor(true)}>Today</p>
                 <p className={displaySensor==false?"choose":""} onClick={() => setDisplaySensor(false)}>Statistic</p>

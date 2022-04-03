@@ -20,10 +20,10 @@ function Sensor() {
     
     useEffect(() => {
         Promise.all([
-            fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/temperature/data?limit=1'),
-            fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/humidity/data?limit=1'),
-            fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/air-pressure/data?limit=1'),
-            fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/wind-speed/data?limit=1')
+            fetch('https://io.adafruit.com/api/v2/phamdinhtrung/feeds/iot-weather-forecast.temp/data?limit=1'),
+            fetch('https://io.adafruit.com/api/v2/phamdinhtrung/feeds/iot-weather-forecast.humid/data?limit=1'),
+            fetch('https://io.adafruit.com/api/v2/phamdinhtrung/feeds/iot-weather-forecast.pressure/data?limit=1'),
+            fetch('https://io.adafruit.com/api/v2/phamdinhtrung/feeds/iot-weather-forecast.wspeed/data?limit=1')
         ])
             .then(
                 (result)=>{
@@ -44,27 +44,27 @@ function Sensor() {
 
 
 
-    const { message } = useSubscription(['luutrinhlam/feeds/temperature','luutrinhlam/feeds/humidity','luutrinhlam/feeds/air_pressure','luutrinhlam/feeds/wind_speed']);
+    const { message } = useSubscription(['phamdinhtrung/feeds/iot-weather-forecast.temp','phamdinhtrung/feeds/iot-weather-forecast.humid','phamdinhtrung/feeds/iot-weather-forecast.pressure','phamdinhtrung/feeds/iot-weather-forecast.wspeed']);
     if(message) {
-        if(message.topic === 'luutrinhlam/feeds/temperature'){
+        if(message.topic === 'phamdinhtrung/feeds/iot-weather-forecast.temp'){
             sensorRecent = {
                 ...sensorRecent,
                 temperature:message.message
             }
         }
-        if(message.topic === 'luutrinhlam/feeds/humidity'){
+        if(message.topic === 'phamdinhtrung/feeds/iot-weather-forecast.humid'){
             sensorRecent = {
                 ...sensorRecent,
                 humidity:message.message
             }
         }
-        if(message.topic === 'luutrinhlam/feeds/air_pressure'){
+        if(message.topic === 'phamdinhtrung/feeds/iot-weather-forecast.pressure'){
             sensorRecent = {
                 ...sensorRecent,
                 air_pressure:message.message
             }
         }
-        if(message.topic === 'luutrinhlam/feeds/wind_speed'){
+        if(message.topic === 'phamdinhtrung/feeds/iot-weather-forecast.wspeed'){
             sensorRecent = {
                 ...sensorRecent,
                 wind_speed:message.message

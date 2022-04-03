@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'chart.js/auto';
-import { Chart, Bar, Doughnut, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import './statistic.css';
 import '../../../../node_modules/font-awesome/css/font-awesome.min.css';
 import { faTemperatureFull, faBottleDroplet, faWind, faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -8,40 +8,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
-var curr = new Date;
-var firstDay = new Date(curr.setDate(curr.getDate() - curr.getDay()));
-var secondDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
-var thirdDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 2));
-var fourthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 3));
-var fifthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 4));
-var sixthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 5));
-var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
+var x = new Date;
+var curr = new Date(x.setDate(x.getDate() - 6));
+
+var firstDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
+var secondDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 2));
+var thirdDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 3));
+var fourthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 4));
+var fifthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 5));
+var sixthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
+var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 7));
 
 
 
 
 
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-// const dataTemp = {
-//     morning: [22, 21, 21, 23, 18, 20, 25],
-//     afternoon: [33, 30, 25, 26, 26, 29, 34],
-//     evening: [23, 20, 17, 19, 20, 21, 25]
-// }
-// const dataHumi = {
-//     morning: [83, 66, 77, 95, 93, 75, 86],
-//     afternoon: [62, 86, 83, 71, 79, 60, 68],
-//     evening: [78, 95, 64, 77, 84, 87, 86]
-// }
-// const dataAirPressure = {
-//     morning: [966, 985, 969, 992, 978, 946, 957],
-//     afternoon: [973, 940, 999, 970, 920, 910, 988],
-//     evening: [902, 944, 915, 957, 987, 974, 934]
-// }
-// const dataWind = {
-//     morning: [11, 10, 6, 13, 11, 7, 5],
-//     afternoon: [12, 11, 11, 11, 11, 8, 10],
-//     evening: [6, 12, 5, 5, 9, 10, 9]
-// }
+
 let dataTemp = {
     morning: [],
     afternoon: [],
@@ -76,7 +59,7 @@ function makeData(receiveData) {
         datasets: [
             {
                 label: "Morning",
-                data: receiveData?receiveData.morning : null,
+                data: receiveData ? receiveData.morning : null,
                 fill: false,
                 // backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)",
@@ -84,7 +67,7 @@ function makeData(receiveData) {
             },
             {
                 label: "Afternoon",
-                data: receiveData?receiveData.afternoon : null,
+                data: receiveData ? receiveData.afternoon : null,
                 fill: false,
                 borderColor: "#742774",
                 // backgroundColor: "#000"
@@ -94,7 +77,7 @@ function makeData(receiveData) {
             },
             {
                 label: "Evening",
-                data: receiveData?receiveData.evening : null,
+                data: receiveData ? receiveData.evening : null,
                 fill: false,
                 borderColor: "#000",
                 borderJoinStyle: 'bevel',
@@ -114,7 +97,7 @@ function renderOptions(unit) {
                 ticks: {
                     // Include a dollar sign in the ticks
                     callback: function (value, index, ticks) {
-                        return value + unit;
+                        return value.toFixed(1) + unit;
                     }
                 }
             }
@@ -150,14 +133,14 @@ function DataChart({ graphState }) {
 
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
-        fetch('https://io.adafruit.com/api/v2/luutrinhlam/feeds/average/data?limit=7')
+        fetch('https://io.adafruit.com/api/v2/phamdinhtrung/feeds/iot-weather-forecast.average/data?limit=7')
             .then(result => result.json())
-            .then(result=>{
+            .then(result => {
                 for (let day_average of result) {
                     let value = day_average.value;
-                    value = value.replaceAll('[','');
-                    value = value.replaceAll(']','');
-                    value = value.replaceAll(' ','');
+                    value = value.replaceAll('[', '');
+                    value = value.replaceAll(']', '');
+                    value = value.replaceAll(' ', '');
                     value = value.split(',');
 
                     dataTemp.morning.unshift(value[0]);
@@ -185,13 +168,13 @@ function DataChart({ graphState }) {
             })
     }, [])
 
-    if (graphState == "temperature")
+    if (graphState === "temperature")
         return <Line data={dataT} options={renderOptions("°C")} />
-    else if (graphState == "humidity")
+    else if (graphState === "humidity")
         return <Line data={dataH} options={renderOptions("%")} />
-    else if (graphState == "air_pressure")
+    else if (graphState === "air_pressure")
         return <Line data={dataA} options={renderOptions(" pa")} />
-    else if (graphState == "wind_speed")
+    else if (graphState === "wind_speed")
         return <Line data={dataW} options={renderOptions(" k/m")} />
 }
 

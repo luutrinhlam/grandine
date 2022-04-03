@@ -7,8 +7,8 @@ const Menu = () => {
     return (
         <>
             <p><a href="#home">Home</a></p>
-            <p><a href="#wgpt3">What is Grandine?</a></p>
-            <p><a href="#possibility">Prediction</a></p>
+            <p><a href="#dashboard">Dashboard</a></p>
+            <p><a href="#grandine">What is Grandine?</a></p>
             <p><a href="#features">Weather Now</a></p>
             <p><a href="#blog">Blog</a></p>
         </>

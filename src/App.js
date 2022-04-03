@@ -11,13 +11,13 @@ import './App.css';
 const options = {
   // servers:[{host: 'localhost', port: 1883}], //optional servers settings
   keepAlive: 60, // in seconds
-  clientId: 'mqttjs_react',
+  clientId: 'mqtt_grandine',
   protocolId: 'MQTT',
   protocolVersion: 4,
   clean: true, // set to false to receive QoS 1 and 2 messages while offline
   reconnectPeriod: 5000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
-  username: 'luutrinhlam', //the username required by your broker, if any
-  password: "aio_iscx08qtipQ3KtxwrhwOZnkxlFHe" //the password required by your broker, if any
+  username: 'phamdinhtrung', //the username required by your broker, if any
+  password: "aio_ksKu805xlpl5hcPTXmiqQPekc6QI" //the password required by your broker, if any
 }
 
 const App = () => (
@@ -29,8 +29,8 @@ const App = () => (
         <Dashboard />
         <Brand /> 
         <WhatGPT3 />
-        <Features />
-        <Possibility />
+        {/* <Features /> */}
+        {/* <Possibility /> */}
         <CTA />
         <Blog />
         <Footer />
