@@ -7,9 +7,15 @@ import { Connector } from 'mqtt-reactjs-hooks';
 
 import './App.css';
 
+const pw1= 'aio_ksKu';
+const pw2= '805xlp';
+const pw3= 'l5hcPTX';
+const pw4= 'miqQPe';
+const pw5= 'kc6QI';
+
 
 const options = {
-  // servers:[{host: 'localhost', port: 1883}], //optional servers settings
+  // servers:[{ port: 1883}], //optional servers settings
   keepAlive: 60, // in seconds
   clientId: 'mqtt_grandine',
   protocolId: 'MQTT',
@@ -17,11 +23,11 @@ const options = {
   clean: true, // set to false to receive QoS 1 and 2 messages while offline
   reconnectPeriod: 5000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
   username: 'phamdinhtrung', //the username required by your broker, if any
-  password: "aio_ksKu805xlpl5hcPTXmiqQPekc6QI" //the password required by your broker, if any
+  password: 'aio_oJeE31ZR4rs7kwvEdp9ytaxdA1cY' //the password required by your broker, if any
 }
 
 const App = () => (
-  <Connector brokerUrl='https://io.adafruit.com' options={options}>
+  <Connector brokerUrl='wss://io.adafruit.com' options={options}>
     <div className="App">
       <div className="gradient__bg">
         <Navbar />

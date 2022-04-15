@@ -9,15 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 var x = new Date;
-var curr = new Date(x.setDate(x.getDate() - 6));
+var curr = new Date(x.setDate(x.getDate() - 7));
 
-var firstDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
-var secondDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 2));
-var thirdDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 3));
-var fourthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 4));
-var fifthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 5));
-var sixthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
-var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 7));
+var firstDay = new Date(curr.setDate(curr.getDate() - curr.getDay()  + 0));
+var secondDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
+var thirdDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 2));
+var fourthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 3));
+var fifthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 4));
+var sixthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 5));
+var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
 
 
 
@@ -110,16 +110,6 @@ function renderOptions(unit) {
             //     to: 0,
             //     loop: true
             // },
-            // onComplete: () => {
-            //     delayed = true;
-            // },
-            // delay: (context) => {
-            //     let delay = 0;
-            //     if (context.type === 'data' && context.mode === 'default' && !delayed) {
-            //         delay = context.dataIndex * 300 + context.datasetIndex * 100;
-            //     }
-            //     return delay;
-            // }
         }
     }
 }
