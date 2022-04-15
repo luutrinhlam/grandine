@@ -7,11 +7,11 @@ import { Connector } from 'mqtt-reactjs-hooks';
 
 import './App.css';
 
-const pw1= 'aio_ksKu';
-const pw2= '805xlp';
-const pw3= 'l5hcPTX';
-const pw4= 'miqQPe';
-const pw5= 'kc6QI';
+const pw1= 'aio_oJe';
+const pw2= 'E31ZR4rs';
+const pw3= '7kwvEdp';
+const pw4= '9ytax';
+const pw5= 'dA1cY';
 
 
 const options = {
@@ -23,7 +23,7 @@ const options = {
   clean: true, // set to false to receive QoS 1 and 2 messages while offline
   reconnectPeriod: 5000, // milliseconds, interval between two reconnections. Disable auto reconnect by setting to 0.
   username: 'phamdinhtrung', //the username required by your broker, if any
-  password: 'aio_oJeE31ZR4rs7kwvEdp9ytaxdA1cY' //the password required by your broker, if any
+  password: pw1+pw2+pw3+pw4+pw5 //the password required by your broker, if any
 }
 
 const App = () => (

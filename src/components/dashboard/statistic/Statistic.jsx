@@ -8,16 +8,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
-var x = new Date;
-var curr = new Date(x.setDate(x.getDate() - 7));
+var x = new Date();
+var curr = new Date(x.setDate(x.getDate()-7));
 
-var firstDay = new Date(curr.setDate(curr.getDate() - curr.getDay()  + 0));
-var secondDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 1));
-var thirdDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 2));
-var fourthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 3));
-var fifthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 4));
-var sixthDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 5));
-var seventhDay = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
+var firstDay = new Date(curr.setDate(curr.getDate() + 0));
+var secondDay = new Date(curr.setDate(curr.getDate() + 1));
+var thirdDay = new Date(curr.setDate(curr.getDate()+ 1));
+var fourthDay = new Date(curr.setDate(curr.getDate()+ 1));
+var fifthDay = new Date(curr.setDate(curr.getDate()+ 1));
+var sixthDay = new Date(curr.setDate(curr.getDate()+ 1));
+var seventhDay = new Date(curr.setDate(curr.getDate() + 1));
 
 
 
