@@ -1,5 +1,5 @@
 import React from 'react';
-import GrandineLogo from '../../assets/Grandine.svg';
+import GrandineLogo from '../../assets/Botanical.svg';
 import './footer.css';
 
 const Footer = () => (

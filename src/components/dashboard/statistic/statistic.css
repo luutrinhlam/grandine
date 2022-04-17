@@ -17,8 +17,8 @@
 .dashboard_statistic_choice .bold {
     /* background-color: rgba(43, 41, 160, 0.678); */
     /* rgba(43, 41, 160, 0.678); */
-    background:radial-gradient(circle at 11% 0%, rgba(245, 92, 232, 0.548) 0%, rgba(119, 175, 212, 0.418) 100%);
-    border: solid 2px rgba(0, 37, 36, 0.226);
+    background:radial-gradient(circle at 11% 0%, rgba(135, 245, 92, 0.692) 0%, rgba(161, 212, 119, 0.61) 100%);
+    border: solid 3px rgba(105, 78, 3, 0.322);
 }
 
 .dashboard_statistic_choice div {
@@ -30,7 +30,7 @@
     border: 1px solid rgba(199, 166, 218, 0.267);
     /* background-color:rgba(75, 70, 58, 0.24); */
     /* background:radial-gradient(circle at 11% 0%, rgba(117, 243, 138, 0.459) 0%, rgba(147, 182, 49, 0.247) 100%); */
-    background-color: rgba(209, 125, 125, 0.151);
+    background-color: rgba(213, 250, 191, 0.562);
     
     padding: 1.2rem;
     margin-top: 1.2rem;

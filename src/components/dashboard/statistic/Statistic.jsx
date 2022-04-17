@@ -61,15 +61,16 @@ function makeData(receiveData) {
                 label: "Morning",
                 data: receiveData ? receiveData.morning : null,
                 fill: false,
-                // backgroundColor: "rgba(75,192,192,0.2)",
-                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: "#fff",
+                borderColor: "rgb(81, 151, 90)",
                 tension: 0.2
             },
             {
                 label: "Afternoon",
                 data: receiveData ? receiveData.afternoon : null,
                 fill: false,
-                borderColor: "#742774",
+                borderColor: "#744c02",
+                backgroundColor: "#fff",
                 // backgroundColor: "#000"
                 // borderWidth: 6,
                 borderJoinStyle: 'bevel',
@@ -79,6 +80,7 @@ function makeData(receiveData) {
                 label: "Evening",
                 data: receiveData ? receiveData.evening : null,
                 fill: false,
+                backgroundColor: "#fff",
                 borderColor: "#000",
                 borderJoinStyle: 'bevel',
                 tension: 0.2

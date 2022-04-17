@@ -3,12 +3,12 @@
     flex-direction: column;
 
     padding: 2rem;
-    background: rgb(248, 248, 252);
+    background: rgba(255, 255, 255, 0.575);
     margin: 4rem 4rem 6rem 6rem;
 
     border-radius: 10px;
-    border: solid 5px rgb(184, 163, 179);
-    box-shadow: 10px 10px rgb(146, 129, 150);
+    border: solid 7px rgb(133, 115, 76);
+    box-shadow: 10px 10px rgb(192, 178, 133);
 
 }
 
@@ -28,7 +28,6 @@
     border-radius:10px;
 
     padding:1rem;
-    color: rgb(29, 70, 62);
     line-height: 25px;
     font-weight: 1000;
     font-size: 29px;
@@ -41,19 +40,23 @@
 .dashboard_type p:nth-child(1){
     border-top-right-radius:0;
     border-bottom-right-radius:0;
-    background-color: rgb(192, 213, 236);
+    background-color: rgb(204, 187, 142);
+    color: #5c6440;
+
     /* border-right: 0; */
 }
 .dashboard_type p:nth-child(2){
     border-top-left-radius:0;
     border-bottom-left-radius:0;
-    background-color:rgb(229, 194, 227);
+    background-color:rgba(247, 224, 93, 0.527);
+    color: rgb(29, 70, 62);
+
     /* border-left: 0; */
 
 }
 
 .dashboard_type .choose{
-    border: solid 4px rgba(0, 7, 66, 0.356);
+    border: solid 4px rgba(3, 12, 0, 0.356);
 
 }
 

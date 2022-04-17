@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../assets/Grandine.svg';
+import logo from '../../assets/Botanical.svg';
 import './navbar.css';
 
 const Menu = () => {
@@ -8,7 +8,7 @@ const Menu = () => {
         <>
             <p><a href="#home">Home</a></p>
             <p><a href="#dashboard">Dashboard</a></p>
-            <p><a href="#grandine">What is Grandine?</a></p>
+            <p><a href="#grandine">What is Botanical?</a></p>
             <p><a href="#features">Weather Now</a></p>
             <p><a href="#blog">Blog</a></p>
         </>
@@ -20,8 +20,8 @@ const Navbar = () => {
     return (
         <div className="gpt3__navbar">
             <div className="gpt3__navbar-links">
-                <div className="gpt3__navbar-links_logo">
-                    <img src={logo} />
+                <div className="gpt3__navbar-links_logo" >
+                    <img  src={logo} />
                 </div>
                 <div className="gpt3__navbar-links_container">
                     <Menu />

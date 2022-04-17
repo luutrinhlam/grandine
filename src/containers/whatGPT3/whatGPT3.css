@@ -3,7 +3,7 @@
     flex-direction: column;
 
     padding: 2rem;
-    background: rgba(250, 252, 249, 0.9);
+    background: rgba(255, 255, 255, 0.575);
     margin: 4rem 4rem 6rem 6rem;
 
     border-radius: 10px;
@@ -35,7 +35,7 @@
 }
 
 .gpt3__whatgpt3-heading h1 {
-    font-size: 34px;
+    font-size: 45px;
     line-height: 45px;
     font-weight: 800;
     font-family: var(--font-family);

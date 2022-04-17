@@ -1,6 +1,6 @@
 import React from 'react';
 // import people from '../../assets/people.png';
-import ai from '../../assets/dragon.png';
+import ai from '../../assets/plant.png';
 import './header.css';
 import { useState } from 'react'
 import { useMqttState, useSubscription } from 'mqtt-reactjs-hooks';
@@ -27,8 +27,8 @@ function Header() {
   return (
     <div className="gpt3__header section__padding" id="home">
       <div className="gpt3__header-content">
-        <h1 className="gradient__text">With the power of Grandine, weather is no matter!</h1>
-        <p>Using AI, mordern Grandine can predict tomorrow sky, and collect all the weather statistics.<br></br> Everything just for you</p>
+        <h1>Your garden is safe with Botanical</h1>
+        <p>Get the most recently status of your lovely plants in the most convenient way<br></br> Everything just for you</p>
 
         <div className="gpt3__header-content__input">
           <input type="email" placeholder="Your Email Address" onChange={handleInputChange}/>

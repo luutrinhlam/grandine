@@ -5,11 +5,11 @@ import './whatGPT3.css';
 const WhatGPT3 = () => (
   <div className="gpt3__whatgpt3 " id="grandine">
     <div className="gpt3__whatgpt3-feature">
-      <Feature title="What is Grandine" textLow="Grandeeney (グランディーネ Gurandīne) was a female Dragon known as The Sky Dragon (天竜 Tenryū) " />
+      <Feature title="What is Botanical" textLow="An innovative self-growing garden for every home and every plant growing need.  " />
     </div>
     <div className="gpt3__whatgpt3-heading">
       <h1 className="gradient__text">All in one <br/>Your dedicated partner</h1>
-      <a href="https://fairytail.fandom.com/wiki/Grandeeney#Personality" target="_blank">Explore the Model</a>
+      <a href="https://www.clickandgrow.com/products/the-smart-garden-9" target="_blank">Explore the Model</a>
     </div>
     <div className="gpt3__whatgpt3-container">
       <Feature title="AI" textLow="I'm pretty sure that was because Porlyusica is the Edolas version of Grandine." />
